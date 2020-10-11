@@ -17,8 +17,8 @@ public class MyLinkedListTest {
 		myLinkedList.add(myThirdNode);
 		myLinkedList.printNodes();
 		boolean result = myLinkedList.getHead().equals(myThirdNode)
-						&& myLinkedList.getHead().getNext().equals(mySecondNode)
-						&& myLinkedList.getHead().getNext().getNext().equals(myFirstNode);
+				&& myLinkedList.getHead().getNext().equals(mySecondNode)
+				&& myLinkedList.getHead().getNext().getNext().equals(myFirstNode);
 		assertTrue(result);
 	}
 
@@ -33,11 +33,11 @@ public class MyLinkedListTest {
 		myLinkedList.append(myThirdNode);
 		myLinkedList.printNodes();
 		boolean result = myLinkedList.getHead().equals(myFirstNode)
-						&& myLinkedList.getHead().getNext().equals(mySecondNode)
-						&& myLinkedList.getHead().getNext().getNext().equals(myThirdNode);
+				&& myLinkedList.getHead().getNext().equals(mySecondNode)
+				&& myLinkedList.getHead().getNext().getNext().equals(myThirdNode);
 		assertTrue(result);
 	}
-	
+
 	@Test
 	public void givenNumberWhenInsertedBetweenTwoNumbersShouldShowLinkedListResult() {
 		MyNode<Integer> myFirstNode = new MyNode<>(56);
@@ -49,11 +49,11 @@ public class MyLinkedListTest {
 		myLinkedList.insert(myFirstNode, mySecondNode);
 		myLinkedList.printNodes();
 		boolean result = myLinkedList.getHead().equals(myFirstNode)
-						&& myLinkedList.getHead().getNext().equals(mySecondNode)
-						&& myLinkedList.getHead().getNext().getNext().equals(myThirdNode);
+				&& myLinkedList.getHead().getNext().equals(mySecondNode)
+				&& myLinkedList.getHead().getNext().getNext().equals(myThirdNode);
 		assertTrue(result);
 	}
-	
+
 	@Test
 	public void givenFirstNumberInLinkedListWhenDeletedShouldShowLinkedListResult() {
 		MyNode<Integer> myFirstNode = new MyNode<>(56);
@@ -66,7 +66,23 @@ public class MyLinkedListTest {
 		myLinkedList.pop();
 		myLinkedList.printNodes();
 		boolean result = myLinkedList.getHead().equals(mySecondNode)
-						&& myLinkedList.getHead().getNext().equals(myThirdNode);
+				&& myLinkedList.getHead().getNext().equals(myThirdNode);
+		assertTrue(result);
+	}
+
+	@Test
+	public void givenLastNumberInLinkedListWhenDeletedShouldShowLinkedListResult() {
+		MyNode<Integer> myFirstNode = new MyNode<>(56);
+		MyNode<Integer> mySecondNode = new MyNode<>(30);
+		MyNode<Integer> myThirdNode = new MyNode<>(70);
+		MyLinkedList myLinkedList = new MyLinkedList();
+		myLinkedList.add(myFirstNode);
+		myLinkedList.append(mySecondNode);
+		myLinkedList.append(myThirdNode);
+		myLinkedList.popLast();
+		myLinkedList.printNodes();
+		boolean result = myLinkedList.getHead().equals(myFirstNode)
+				&& myLinkedList.getHead().getNext().equals(mySecondNode);
 		assertTrue(result);
 	}
 }
