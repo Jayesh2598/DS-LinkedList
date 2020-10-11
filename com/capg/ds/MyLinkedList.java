@@ -1,9 +1,9 @@
 package com.capg.ds;
 
 public class MyLinkedList {
-	
-	private INode head;
-	private INode tail;
+
+	protected INode head;
+	protected INode tail;
 
 	public MyLinkedList() {
 		this.head = null;
@@ -25,25 +25,24 @@ public class MyLinkedList {
 	public void setTail(INode tail) {
 		this.tail = tail;
 	}
-	
+
 	public void printNodes() {
 		StringBuffer myNodes = new StringBuffer("Nodes sequence:\n");
 		INode tempNode = head;
-		while(tempNode.getNext() != null) {
+		while (tempNode.getNext() != null) {
 			myNodes.append(tempNode.getKey());
-			if(!(tempNode==tail)) 
+			if (!(tempNode == tail))
 				myNodes.append("->");
 			tempNode = tempNode.getNext();
 		}
 		myNodes.append(tempNode.getKey());
 		System.out.println(myNodes);
 	}
-	
 
 	public void add(INode node) {
-		if(this.tail == null)
+		if (this.tail == null)
 			this.tail = node;
-		if(this.head == null)
+		if (this.head == null)
 			this.head = node;
 		else {
 			INode tempNode = this.head;
@@ -51,43 +50,42 @@ public class MyLinkedList {
 			this.head.setNext(tempNode);
 		}
 	}
-	
 
 	public void append(INode node) {
-		if(this.tail == null)
+		if (this.tail == null)
 			this.tail = node;
-		if(this.head == null)
+		if (this.head == null)
 			this.head = node;
 		else {
 			this.tail.setNext(node);
 			this.tail = node;
 		}
 	}
-	
+
 	public void insert(INode node, INode newNode) {
 		INode tempNode = node.getNext();
 		node.setNext(newNode);
 		newNode.setNext(tempNode);
 	}
-	
+
 	public void pop() {
 		INode tempNode = this.head.getNext();
 		this.head = tempNode;
 	}
-	
+
 	public void popLast() {
 		INode tempNode = this.head;
-		while(tempNode.getNext().getNext()!=null) {
+		while (tempNode.getNext().getNext() != null) {
 			tempNode = tempNode.getNext();
 		}
 		tempNode.setNext(null);
 	}
-	
+
 	public INode search(Integer value) {
 		INode tempNode = this.head;
 		INode wantedNode = null;
-		while(tempNode.getNext()!=null) {
-			if((Integer)tempNode.getKey()==value) {
+		while (tempNode.getNext() != null) {
+			if ((Integer) tempNode.getKey() == value) {
 				wantedNode = tempNode;
 				break;
 			}
@@ -95,28 +93,28 @@ public class MyLinkedList {
 		}
 		return wantedNode;
 	}
-	
+
 	public void remove(INode node) {
-		if((Integer)this.head.getKey()==node.getKey())
+		if ((Integer) this.head.getKey() == node.getKey())
 			pop();
-		else if((Integer)this.tail.getKey()==node.getKey())
+		else if ((Integer) this.tail.getKey() == node.getKey())
 			popLast();
 		else {
 			INode tempNode = this.head;
-			while (tempNode.getNext()!=null) {
-				if((Integer)tempNode.getNext().getKey()==node.getKey()) {
+			while (tempNode.getNext() != null) {
+				if ((Integer) tempNode.getNext().getKey() == node.getKey()) {
 					INode tempNode1 = tempNode.getNext().getNext();
 					tempNode.setNext(tempNode1);
 				}
 				tempNode = tempNode.getNext();
 			}
-		}	
+		}
 	}
-	
+
 	public int size() {
 		INode tempNode = this.head;
-		int size=1;
-		while (tempNode.getNext()!=null) {
+		int size = 1;
+		while (tempNode.getNext() != null) {
 			size++;
 			tempNode = tempNode.getNext();
 		}

@@ -118,7 +118,7 @@ public class MyLinkedListTest {
 				&& myLinkedList.getHead().getNext().getNext().getNext().equals(myFourthNode);
 		assertTrue(result);
 	}
-	
+
 	@Test
 	public void givenNumber40AfterDeletionFromLinkedListShouldShowSizeOfLinkedListAs3() {
 		MyNode<Integer> myFirstNode = new MyNode<>(56);
@@ -132,7 +132,26 @@ public class MyLinkedListTest {
 		myLinkedList.append(myFourthNode);
 		myLinkedList.remove(myLinkedList.search(40));
 		myLinkedList.printNodes();
-		boolean result = (myLinkedList.size()==3);
+		boolean result = (myLinkedList.size() == 3);
+		assertTrue(result);
+	}
+
+	@Test
+	public void givenNumbersWhenAddedShouldBeSortedInAscendingOrderAndShownInLinkedListResult() {
+		MyNode<Integer> myFirstNode = new MyNode<>(56);
+		MyNode<Integer> mySecondNode = new MyNode<>(30);
+		MyNode<Integer> myThirdNode = new MyNode<>(40);
+		MyNode<Integer> myFourthNode = new MyNode<>(70);
+		MyLinkedList myLinkedList = new SortedLinkedList();
+		myLinkedList.add(myFirstNode);
+		myLinkedList.add(mySecondNode);
+		myLinkedList.add(myThirdNode);
+		myLinkedList.add(myFourthNode);
+		myLinkedList.printNodes();
+		boolean result = myLinkedList.getHead().equals(mySecondNode)
+				&& myLinkedList.getHead().getNext().equals(myThirdNode)
+				&& myLinkedList.getHead().getNext().getNext().equals(myFirstNode)
+				&& myLinkedList.getHead().getNext().getNext().getNext().equals(myFourthNode);
 		assertTrue(result);
 	}
 }
