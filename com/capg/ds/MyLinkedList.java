@@ -63,4 +63,10 @@ public class MyLinkedList {
 			this.tail = node;
 		}
 	}
+	
+	public void insert(INode node, INode newNode) {
+		INode tempNode = node.getNext();
+		this.head.setNext(newNode);
+		newNode.setNext(tempNode);
+	}
 }
