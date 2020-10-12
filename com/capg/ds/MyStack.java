@@ -1,4 +1,4 @@
-package stacksandqueues;
+package com.capg.ds;
 
 import com.capg.ds.*;
 
@@ -20,6 +20,10 @@ public class MyStack {
 
 	public void printStack() {
 		myLinkedList.printNodes();
+	}
+
+	public INode pop() {
+		return myLinkedList.pop();
 	}
 	
 }

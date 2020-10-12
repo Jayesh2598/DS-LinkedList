@@ -63,7 +63,7 @@ public class MyLinkedListTest {
 		myLinkedList.add(myFirstNode);
 		myLinkedList.append(mySecondNode);
 		myLinkedList.append(myThirdNode);
-		myLinkedList.pop();
+		INode popped = myLinkedList.pop();
 		myLinkedList.printNodes();
 		boolean result = myLinkedList.getHead().equals(mySecondNode)
 				&& myLinkedList.getHead().getNext().equals(myThirdNode);
