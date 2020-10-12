@@ -10,7 +10,7 @@ public class MyStack {
 		this.myLinkedList = new MyLinkedList();
 	}
 
-	public void push(MyNode<Integer> node) {
+	public void push(INode node) {
 		myLinkedList.add(node);
 	}
 
