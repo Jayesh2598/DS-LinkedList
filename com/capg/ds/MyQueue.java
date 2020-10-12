@@ -15,5 +15,13 @@ public class MyQueue {
 	public INode dequeue() {
 		return myLinkedList.pop();
 	}
+
+	public void printQueue() {
+		myLinkedList.printNodes();
+	}
+
+	public INode peek() {
+		return myLinkedList.getHead();
+	}
 	
 }
